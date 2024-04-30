@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import programsService from "../services/programs";
 
@@ -18,6 +18,12 @@ const Program = ({ program }) => {
 const Programs = ({ channelId }) => {
   const [programs, setPrograms] = useState([]);
 
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate("/");
+  };
+
   useEffect(() => {
     programsService
       .getPrograms(channelId)
@@ -32,6 +38,7 @@ const Programs = ({ channelId }) => {
   return (
     <div>
       <h1>Programs</h1>
+      <button onClick={handleBackClick}>Back</button>
       <ul>
         {programs.map((program) => (
           <Program key={program.id} program={program} />
