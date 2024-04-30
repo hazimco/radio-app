@@ -14,7 +14,7 @@ const App = () => {
       <Route path="/" element={<Start />} />
       <Route path="/channel" element={<Channel />}>
         <Route path="" element={<Programs channelId={channelId} />} />
-        <Route path="episodes/:id" element={<Episodes />} />
+        <Route path="episodes/:programId" element={<Episodes />} />
       </Route>
     </Routes>
   );
