@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Start from "./components/Start";
@@ -6,11 +7,13 @@ import Programs from "./components/Programs";
 import Episodes from "./components/Episodes";
 
 const App = () => {
+  const [channelId, setChannelId] = useState("132");
+
   return (
     <Routes>
       <Route path="/" element={<Start />} />
       <Route path="/channel" element={<Channel />}>
-        <Route path="" element={<Programs />} />
+        <Route path="" element={<Programs channelId={channelId} />} />
         <Route path="episodes/:id" element={<Episodes />} />
       </Route>
     </Routes>
