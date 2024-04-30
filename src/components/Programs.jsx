@@ -25,14 +25,21 @@ const Programs = ({ channelId }) => {
   };
 
   useEffect(() => {
+    let componentIsMounted = true;
     programsService
       .getPrograms(channelId)
       .then(({ programs }) => {
-        setPrograms(programs);
+        if (componentIsMounted) {
+          setPrograms(programs);
+        }
       })
       .catch((error) => {
         console.error(error);
       });
+
+    return () => {
+      componentIsMounted = false;
+    };
   }, [channelId]);
 
   return (

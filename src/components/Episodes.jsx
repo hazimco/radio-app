@@ -28,14 +28,21 @@ const Episodes = () => {
   };
 
   useEffect(() => {
+    let componentIsMounted = true;
     episodesService
       .getEpisodes(programId)
       .then(({ episodes }) => {
-        setEpisodes(episodes);
+        if (componentIsMounted) {
+          setEpisodes(episodes);
+        }
       })
       .catch((error) => {
         console.error(error);
       });
+
+    return () => {
+      componentIsMounted = false;
+    };
   }, [programId]);
 
   return (

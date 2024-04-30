@@ -8,15 +8,22 @@ const Channel = () => {
   const [tagline, setTagline] = useState();
 
   useEffect(() => {
+    let componentIsMounted = true;
     channelService
       .get()
       .then(({ channel }) => {
-        setImageUrl(channel?.image);
-        setTagline(channel?.tagline);
+        if (componentIsMounted) {
+          setImageUrl(channel?.image);
+          setTagline(channel?.tagline);
+        }
       })
       .catch((error) => {
         console.error(error);
       });
+
+    return () => {
+      componentIsMounted = false;
+    };
   }, []);
 
   return (
