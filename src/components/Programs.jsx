@@ -5,13 +5,13 @@ import programsService from "../services/programs";
 
 const Program = ({ program }) => {
   return (
-    <Link to={`/channel/episodes/${program.id}`}>
-      <li>
+    <li>
+      <Link to={`/channel/episodes/${program.id}`}>
         <img src={program.programimage} alt="" />
         <div>{program.name}</div>
         <div>{program.description}</div>
-      </li>
-    </Link>
+      </Link>
+    </li>
   );
 };
 
