@@ -91,6 +91,7 @@ const Filter = ({ filterText, handleFilterChange }) => {
         placeholder="Enter a keyword or date"
         value={filterText}
         onChange={handleFilterChange}
+        className="p-2 mb-5 border-slate-400 border-[0.5px] rounded-md bg-slate-800 text-white w-full"
       />
     </>
   );
