@@ -6,13 +6,14 @@ import { isDate, getDateMillis } from "../utils/helper";
 
 const Episode = ({ episode }) => {
   return (
-    <li>
-      <img src={episode.imageurl} alt="" />
-      <div>{episode.title}</div>
-      <div>{episode.description}</div>
+    <li className="py-6">
+      <img className="w-24 mb-5" src={episode.imageurl} alt="" />
+      <div className="text-white text-2xl mb-1">{episode.title}</div>
+      <div className="text-slate-400 text-sm mb-4">{episode.description}</div>
       <audio
         controls
         src={episode.listenpodfile?.url || episode.broadcast?.broadcastfiles}
+        className="h-10 w-full"
       ></audio>
     </li>
   );
@@ -67,10 +68,12 @@ const Episodes = () => {
 
   return (
     <div>
-      <button onClick={handleBackClick}>Back</button>
-      <h1>Episodes</h1>
+      <button onClick={handleBackClick} className="text-slate-400 mb-4">
+        Back
+      </button>
+      <h1 className="text-pink-300 text-3xl font-semibold mb-6">Episodes</h1>
       <Filter filterText={filterText} handleFilterChange={handleFilterChange} />
-      <ul>
+      <ul className="divide-y divide-y-1 divide-slate-800">
         {filteredAndSortedEpisodes.map((episode) => (
           <Episode key={episode.id} episode={episode} />
         ))}
@@ -82,7 +85,7 @@ const Episodes = () => {
 const Filter = ({ filterText, handleFilterChange }) => {
   return (
     <>
-      <h4>Filter</h4>
+      <h4 className="text-pink-600 text-xl font-semibold mb-2">Filter</h4>
       <input
         type="text"
         placeholder="Enter a keyword or date"
