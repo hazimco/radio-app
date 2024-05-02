@@ -56,13 +56,19 @@ const Episodes = () => {
       : episode.title.toLowerCase().includes(filterText.toLowerCase());
   });
 
+  const filteredAndSortedEpisodes = [...filteredEpisodes].sort((a, b) => {
+    return isDate(filterText)
+      ? getDateMillis(a.publishdateutc) - getDateMillis(b.publishdateutc)
+      : 1;
+  });
+
   return (
     <div>
       <button onClick={handleBackClick}>Back</button>
       <h1>Episodes</h1>
       <Filter filterText={filterText} handleFilterChange={handleFilterChange} />
       <ul>
-        {filteredEpisodes.map((episode) => (
+        {filteredAndSortedEpisodes.map((episode) => (
           <Episode key={episode.id} episode={episode} />
         ))}
       </ul>
