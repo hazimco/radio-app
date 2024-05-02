@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import episodesService from "../services/episodes";
-import { isDate } from "../utils/helper";
+import { isDate, getDateMillis } from "../utils/helper";
 
 const Episode = ({ episode }) => {
   return (
@@ -52,7 +52,7 @@ const Episodes = () => {
 
   const filteredEpisodes = episodes.filter((episode) => {
     return isDate(filterText)
-      ? episode
+      ? getDateMillis(episode.publishdateutc) >= Date.parse(filterText)
       : episode.title.toLowerCase().includes(filterText.toLowerCase());
   });
 

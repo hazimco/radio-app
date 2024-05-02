@@ -11,3 +11,11 @@
 export const isDate = (value) => {
   return !isNaN(Date.parse(value));
 };
+
+// returns integer part of string with format /Date(1711966140000)/
+export const getDateMillis = (value) => {
+  const firstPartRemoved = value.replace("/Date(", "");
+  const dateMillis = firstPartRemoved.replace(")/", "");
+
+  return dateMillis;
+};
