@@ -56,11 +56,14 @@ const Episodes = () => {
       : episode.title.toLowerCase().includes(filterText.toLowerCase());
   });
 
-  const filteredAndSortedEpisodes = [...filteredEpisodes].sort((a, b) => {
-    return isDate(filterText)
-      ? getDateMillis(a.publishdateutc) - getDateMillis(b.publishdateutc)
-      : 1;
-  });
+  let filteredAndSortedEpisodes = [...filteredEpisodes];
+  if (filterText) {
+    filteredAndSortedEpisodes.sort((a, b) => {
+      return isDate(filterText)
+        ? getDateMillis(a.publishdateutc) - getDateMillis(b.publishdateutc)
+        : a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+    });
+  }
 
   return (
     <div>
