@@ -44,8 +44,8 @@ const Programs = ({ channelId }) => {
 
   return (
     <div>
-      <h1>Programs</h1>
       <button onClick={handleBackClick}>Back</button>
+      <h1>Programs</h1>
       <ul>
         {programs.map((program) => (
           <Program key={program.id} program={program} />
