@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import episodesService from "../services/episodes";
+import { isDate } from "../utils/helper";
 
 const Episode = ({ episode }) => {
   return (
@@ -18,9 +19,9 @@ const Episode = ({ episode }) => {
 };
 const Episodes = () => {
   const [episodes, setEpisodes] = useState([]);
+  const [filterText, setFilterText] = useState("");
 
   const { programId } = useParams();
-
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -45,16 +46,41 @@ const Episodes = () => {
     };
   }, [programId]);
 
+  const handleFilterChange = (event) => {
+    setFilterText(event.target.value);
+  };
+
+  const filteredEpisodes = episodes.filter((episode) => {
+    return isDate(filterText)
+      ? episode
+      : episode.title.toLowerCase().includes(filterText.toLowerCase());
+  });
+
   return (
     <div>
       <button onClick={handleBackClick}>Back</button>
       <h1>Episodes</h1>
+      <Filter filterText={filterText} handleFilterChange={handleFilterChange} />
       <ul>
-        {episodes.map((episode) => (
+        {filteredEpisodes.map((episode) => (
           <Episode key={episode.id} episode={episode} />
         ))}
       </ul>
     </div>
+  );
+};
+
+const Filter = ({ filterText, handleFilterChange }) => {
+  return (
+    <>
+      <h4>Filter</h4>
+      <input
+        type="text"
+        placeholder="Enter a keyword or date"
+        value={filterText}
+        onChange={handleFilterChange}
+      />
+    </>
   );
 };
 
