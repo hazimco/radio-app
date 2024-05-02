@@ -45,7 +45,7 @@ const Programs = ({ channelId }) => {
   }, [channelId]);
 
   return (
-    <div>
+    <div className="w-full">
       <button onClick={handleBackClick} className="text-slate-400 mb-4">
         Back
       </button>
