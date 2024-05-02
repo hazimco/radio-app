@@ -10,13 +10,15 @@ const App = () => {
   const [channelId, setChannelId] = useState("132");
 
   return (
-    <Routes>
-      <Route path="/" element={<Start />} />
-      <Route path="/channel" element={<Channel />}>
-        <Route path="" element={<Programs channelId={channelId} />} />
-        <Route path="episodes/:programId" element={<Episodes />} />
-      </Route>
-    </Routes>
+    <div className="bg-gray-900 h-screen flex justify-center">
+      <Routes>
+        <Route path="/" element={<Start />} />
+        <Route path="/channel" element={<Channel />}>
+          <Route path="" element={<Programs channelId={channelId} />} />
+          <Route path="episodes/:programId" element={<Episodes />} />
+        </Route>
+      </Routes>
+    </div>
   );
 };
 
