@@ -8,7 +8,7 @@ const Program = ({ program }) => {
     <li className="py-6">
       <Link to={`/channel/episodes/${program.id}`} className="flex">
         <img className="w-24 h-24" src={program.programimage} alt="" />
-        <div className="pl-6">
+        <div className="ml-6">
           <div className="text-white text-2xl">{program.name}</div>
           <div className="text-slate-400 text-sm">{program.description}</div>
         </div>
@@ -46,11 +46,11 @@ const Programs = ({ channelId }) => {
 
   return (
     <div>
-      <button onClick={handleBackClick} className="text-slate-400 pb-4">
+      <button onClick={handleBackClick} className="text-slate-400 mb-4">
         Back
       </button>
-      <h1 className="text-pink-300 text-3xl font-semibold pb-6">Programs</h1>
-      <ul className="divide-y divide-y-1 divide-slate-700">
+      <h1 className="text-pink-300 text-3xl font-semibold mb-6">Programs</h1>
+      <ul className="divide-y divide-y-1 divide-slate-800">
         {programs.map((program) => (
           <Program key={program.id} program={program} />
         ))}
