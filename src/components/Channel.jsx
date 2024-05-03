@@ -27,7 +27,7 @@ const Channel = () => {
   }, []);
 
   return (
-    <div className="p-14 flex flex-col gap-12 items-center">
+    <div className="px-8 py-12 flex flex-col gap-12 items-center">
       <img className="w-28" src={imageUrl} alt="" />
       <p className="text-slate-400 text-center">{tagline}</p>
       <Outlet />
