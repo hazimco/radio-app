@@ -1,22 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ArrowLongLeftIcon } from "@heroicons/react/16/solid";
 
-import programsService from "../services/programs";
-
-const Program = ({ program }) => {
-  return (
-    <li className="py-6">
-      <Link to={`/channel/episodes/${program.id}`} className="flex">
-        <img className="w-24 h-24" src={program.programimage} alt="" />
-        <div className="ml-6">
-          <h2 className="text-white text-2xl">{program.name}</h2>
-          <p className="text-slate-400 text-sm">{program.description}</p>
-        </div>
-      </Link>
-    </li>
-  );
-};
+import programsService from "../../services/programs";
+import Program from "./Program";
 
 const Programs = ({ channelId }) => {
   const [programs, setPrograms] = useState([]);
