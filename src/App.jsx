@@ -7,7 +7,7 @@ import Programs from "./pages/Programs";
 import Episodes from "./pages/Episodes";
 
 const App = () => {
-  const [channelId, setChannelId] = useState("132");
+  const [channelId] = useState("132");
 
   return (
     <Routes>
