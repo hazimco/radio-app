@@ -86,8 +86,8 @@ const Episodes = () => {
 
 const Filter = ({ filterText, handleFilterChange }) => {
   return (
-    <>
-      <h4 className="text-pink-600 text-xl font-semibold mb-2">Filter</h4>
+    <div className="pt-6">
+      <h4 className="text-pink-500 text-xl mb-2">Filter</h4>
       <input
         type="text"
         placeholder="Enter a keyword or date"
@@ -95,7 +95,7 @@ const Filter = ({ filterText, handleFilterChange }) => {
         onChange={handleFilterChange}
         className="p-2 mb-5 border-slate-400 border-[0.5px] rounded-md bg-slate-800 text-white w-full"
       />
-    </>
+    </div>
   );
 };
 
