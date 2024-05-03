@@ -31,7 +31,7 @@ const Channel = () => {
   return (
     <div
       className={`px-8 py-12 ${
-        imageLoaded ? "flex" : "invisible"
+        imageLoaded ? "flex" : "invisible" //vyn laddas lite hackigt innan kanalloggan har laddats, så jag döljer allt innan den är redo
       } flex-col gap-12`}
     >
       <div className="flex flex-col items-center gap-12 sm:flex-row">
