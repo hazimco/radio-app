@@ -7,6 +7,7 @@ import Episode from "./Episode";
 import Filter from "./Filter";
 import BackButton from "../../components/BackButton";
 import PageTitle from "../../components/PageTitle";
+import DividerList from "../../components/DividerList";
 
 const Episodes = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -61,11 +62,11 @@ const Episodes = () => {
       <BackButton handleBackClick={handleBackClick} />
       <PageTitle>Episodes</PageTitle>
       <Filter filterText={filterText} handleFilterChange={handleFilterChange} />
-      <ul className="divide-y divide-y-1 divide-slate-800">
+      <DividerList>
         {filteredAndSortedEpisodes.map((episode) => (
           <Episode key={episode.id} episode={episode} />
         ))}
-      </ul>
+      </DividerList>
     </div>
   );
 };

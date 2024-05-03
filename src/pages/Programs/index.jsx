@@ -5,6 +5,7 @@ import programsService from "../../services/programs";
 import Program from "./Program";
 import BackButton from "../../components/BackButton";
 import PageTitle from "../../components/PageTitle";
+import DividerList from "../../components/DividerList";
 
 const Programs = ({ channelId }) => {
   const [programs, setPrograms] = useState([]);
@@ -37,11 +38,11 @@ const Programs = ({ channelId }) => {
     <div className="w-full">
       <BackButton handleBackClick={handleBackClick} />
       <PageTitle>Programs</PageTitle>
-      <ul className="divide-y divide-y-1 divide-slate-800">
+      <DividerList>
         {programs.map((program) => (
           <Program key={program.id} program={program} />
         ))}
-      </ul>
+      </DividerList>
     </div>
   );
 };
