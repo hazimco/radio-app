@@ -7,6 +7,8 @@ const Channel = () => {
   const [imageUrl, setImageUrl] = useState();
   const [tagline, setTagline] = useState();
 
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   useEffect(() => {
     let componentIsMounted = true;
     channelService
@@ -27,9 +29,18 @@ const Channel = () => {
   }, []);
 
   return (
-    <div className="px-8 py-12 flex flex-col gap-12">
+    <div
+      className={`px-8 py-12 ${
+        imageLoaded ? "flex" : "invisible"
+      } flex-col gap-12`}
+    >
       <div className="flex flex-col items-center gap-12 sm:flex-row">
-        <img className="w-28" src={imageUrl} alt="" />
+        <img
+          onLoad={() => setImageLoaded(true)}
+          className="w-28"
+          src={imageUrl}
+          alt=""
+        />
         <p className="text-slate-400 text-center sm:text-left">{tagline}</p>
       </div>
       <Outlet />
