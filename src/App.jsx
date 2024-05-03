@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Start from "./pages/Start";
 import Channel from "./pages/Channel";
 import Programs from "./pages/Programs";
-import Episodes from "./components/Episodes";
+import Episodes from "./pages/Episodes";
 
 const App = () => {
   const [channelId, setChannelId] = useState("132");
