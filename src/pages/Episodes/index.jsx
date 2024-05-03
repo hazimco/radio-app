@@ -6,6 +6,7 @@ import { isDate, getDateMillis } from "../../utils/helper";
 import Episode from "./Episode";
 import Filter from "./Filter";
 import BackButton from "../../components/BackButton";
+import PageTitle from "../../components/PageTitle";
 
 const Episodes = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -58,9 +59,7 @@ const Episodes = () => {
   return (
     <div className="w-full">
       <BackButton handleBackClick={handleBackClick} />
-      <h1 className="text-pink-300 text-3xl font-semibold mb-6 sm:text-6xl">
-        Episodes
-      </h1>
+      <PageTitle>Episodes</PageTitle>
       <Filter filterText={filterText} handleFilterChange={handleFilterChange} />
       <ul className="divide-y divide-y-1 divide-slate-800">
         {filteredAndSortedEpisodes.map((episode) => (
