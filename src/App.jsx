@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Start from "./components/Start";
+import Start from "./pages/Start";
 import Channel from "./components/Channel";
 import Programs from "./components/Programs";
 import Episodes from "./components/Episodes";
