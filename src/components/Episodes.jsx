@@ -10,8 +10,8 @@ const Episode = ({ episode }) => {
     <li className="py-6 sm:flex">
       <img className="w-24 h-24 mb-5" src={episode.imageurl} alt="" />
       <div className="sm:ml-6">
-        <div className="text-white text-2xl mb-1">{episode.title}</div>
-        <div className="text-slate-400 text-sm mb-4">{episode.description}</div>
+        <h2 className="text-white text-2xl mb-1">{episode.title}</h2>
+        <p className="text-slate-400 text-sm mb-4">{episode.description}</p>
         <audio
           controls
           src={episode.listenpodfile?.url || episode.broadcast?.broadcastfiles}
@@ -94,7 +94,7 @@ const Episodes = () => {
 const Filter = ({ filterText, handleFilterChange }) => {
   return (
     <div className="pt-6">
-      <h4 className="text-pink-500 text-xl mb-2">Filter</h4>
+      <h1 className="text-pink-500 text-xl mb-2">Filter</h1>
       <input
         type="text"
         placeholder="Enter a keyword or date"

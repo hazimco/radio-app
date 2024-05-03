@@ -10,8 +10,8 @@ const Program = ({ program }) => {
       <Link to={`/channel/episodes/${program.id}`} className="flex">
         <img className="w-24 h-24" src={program.programimage} alt="" />
         <div className="ml-6">
-          <div className="text-white text-2xl">{program.name}</div>
-          <div className="text-slate-400 text-sm">{program.description}</div>
+          <h2 className="text-white text-2xl">{program.name}</h2>
+          <p className="text-slate-400 text-sm">{program.description}</p>
         </div>
       </Link>
     </li>
