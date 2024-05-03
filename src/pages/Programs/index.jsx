@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 import programsService from "../../services/programs";
@@ -6,33 +6,26 @@ import Program from "./Program";
 import BackButton from "../../components/BackButton";
 import PageTitle from "../../components/PageTitle";
 import DividerList from "../../components/DividerList";
+import useApiFetch from "../../hooks/useApiFetch";
 
 const Programs = ({ channelId }) => {
-  const [programs, setPrograms] = useState([]);
-
   const navigate = useNavigate();
 
   const handleBackClick = () => {
     navigate("/");
   };
 
-  useEffect(() => {
-    let componentIsMounted = true;
-    programsService
-      .getPrograms(channelId)
-      .then(({ programs }) => {
-        if (componentIsMounted) {
-          setPrograms(programs);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  // Jag hade först en useEffect för att hämta data (likt Channel och Episodes), men skapade en hook för att se hur det skulle kunna se ut.
+  // Det blir kortare kod, men jag tycker att det blir lite fulare med useCallbacken.
+  const cachedFunction = useCallback(
+    () => programsService.getPrograms(channelId),
+    [channelId]
+  );
+  const data = useApiFetch(cachedFunction);
 
-    return () => {
-      componentIsMounted = false;
-    };
-  }, [channelId]);
+  if (!data) return;
+
+  const { programs } = data;
 
   return (
     <div className="w-full">
