@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Start from "./pages/Start";
 import Channel from "./pages/Channel";
-import Programs from "./components/Programs";
+import Programs from "./pages/Programs";
 import Episodes from "./components/Episodes";
 
 const App = () => {
