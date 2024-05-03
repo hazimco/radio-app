@@ -71,7 +71,9 @@ const Episodes = () => {
       <button onClick={handleBackClick} className="text-slate-400 mb-4">
         Back
       </button>
-      <h1 className="text-pink-300 text-3xl font-semibold mb-6">Episodes</h1>
+      <h1 className="text-pink-300 text-3xl font-semibold mb-6 sm:text-6xl">
+        Episodes
+      </h1>
       <Filter filterText={filterText} handleFilterChange={handleFilterChange} />
       <ul className="divide-y divide-y-1 divide-slate-800">
         {filteredAndSortedEpisodes.map((episode) => (

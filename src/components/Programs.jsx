@@ -49,7 +49,9 @@ const Programs = ({ channelId }) => {
       <button onClick={handleBackClick} className="text-slate-400 mb-4">
         Back
       </button>
-      <h1 className="text-pink-300 text-3xl font-semibold mb-6">Programs</h1>
+      <h1 className="text-pink-300 text-3xl font-semibold mb-6 sm:text-6xl">
+        Programs
+      </h1>
       <ul className="divide-y divide-y-1 divide-slate-800">
         {programs.map((program) => (
           <Program key={program.id} program={program} />
