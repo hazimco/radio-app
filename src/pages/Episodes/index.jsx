@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLongLeftIcon } from "@heroicons/react/16/solid";
 
 import episodesService from "../../services/episodes";
 import { isDate, getDateMillis } from "../../utils/helper";
 import Episode from "./Episode";
 import Filter from "./Filter";
+import BackButton from "../../components/BackButton";
 
 const Episodes = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -57,13 +57,7 @@ const Episodes = () => {
 
   return (
     <div className="w-full">
-      <button
-        onClick={handleBackClick}
-        className="text-slate-400 flex gap-2 mb-4"
-      >
-        <ArrowLongLeftIcon className="size-6 text-slate-400" />
-        Back
-      </button>
+      <BackButton handleBackClick={handleBackClick} />
       <h1 className="text-pink-300 text-3xl font-semibold mb-6 sm:text-6xl">
         Episodes
       </h1>

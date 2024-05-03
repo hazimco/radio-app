@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLongLeftIcon } from "@heroicons/react/16/solid";
 
 import programsService from "../../services/programs";
 import Program from "./Program";
+import BackButton from "../../components/BackButton";
 
 const Programs = ({ channelId }) => {
   const [programs, setPrograms] = useState([]);
@@ -34,13 +34,7 @@ const Programs = ({ channelId }) => {
 
   return (
     <div className="w-full">
-      <button
-        onClick={handleBackClick}
-        className="text-slate-400 flex gap-2 mb-4"
-      >
-        <ArrowLongLeftIcon className="size-6 text-slate-400" />
-        Back
-      </button>
+      <BackButton handleBackClick={handleBackClick} />
       <h1 className="text-pink-300 text-3xl font-semibold mb-6 sm:text-6xl">
         Programs
       </h1>
