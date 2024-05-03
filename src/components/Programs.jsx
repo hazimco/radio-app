@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ArrowLongLeftIcon } from "@heroicons/react/16/solid";
 
 import programsService from "../services/programs";
 
@@ -46,7 +47,11 @@ const Programs = ({ channelId }) => {
 
   return (
     <div className="w-full">
-      <button onClick={handleBackClick} className="text-slate-400 mb-4">
+      <button
+        onClick={handleBackClick}
+        className="text-slate-400 flex gap-2 mb-4"
+      >
+        <ArrowLongLeftIcon className="size-6 text-slate-400" />
         Back
       </button>
       <h1 className="text-pink-300 text-3xl font-semibold mb-6 sm:text-6xl">
