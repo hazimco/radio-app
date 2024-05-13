@@ -1,4 +1,10 @@
-const Episode = ({ episode }) => {
+import type { Episode } from "../../types/global";
+
+interface Props {
+  episode: Episode;
+}
+
+const Episode = ({ episode }: Props) => {
   return (
     <li className="py-6 sm:flex">
       <img className="w-24 h-24 mb-5" src={episode.imageurl} alt="" />
@@ -7,7 +13,10 @@ const Episode = ({ episode }) => {
         <p className="text-slate-400 text-sm mb-4">{episode.description}</p>
         <audio
           controls
-          src={episode.listenpodfile?.url || episode.broadcast?.broadcastfiles}
+          src={
+            episode.listenpodfile?.url ||
+            episode.broadcast?.broadcastfiles[0]?.url
+          }
           className="h-10 w-full sm:w-1/2"
         ></audio>
       </div>

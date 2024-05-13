@@ -4,8 +4,8 @@ import { Outlet } from "react-router-dom";
 import channelService from "../services/channel";
 
 const Channel = () => {
-  const [imageUrl, setImageUrl] = useState();
-  const [tagline, setTagline] = useState();
+  const [imageUrl, setImageUrl] = useState<string>();
+  const [tagline, setTagline] = useState<string>();
 
   const [imageLoaded, setImageLoaded] = useState(false);
 

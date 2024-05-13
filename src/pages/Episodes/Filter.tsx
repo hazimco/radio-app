@@ -1,4 +1,9 @@
-const Filter = ({ filterText, handleFilterChange }) => {
+interface Props {
+  filterText: string;
+  handleFilterChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Filter = ({ filterText, handleFilterChange }: Props) => {
   return (
     <div className="pt-6">
       <h1 className="text-pink-500 text-xl mb-2">Filter</h1>

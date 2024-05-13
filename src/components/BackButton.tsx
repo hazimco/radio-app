@@ -1,6 +1,10 @@
 import { ArrowLongLeftIcon } from "@heroicons/react/16/solid";
 
-const BackButton = ({ handleBackClick }) => {
+interface Props {
+  handleBackClick: () => void;
+}
+
+const BackButton = ({ handleBackClick }: Props) => {
   return (
     <button
       onClick={handleBackClick}

@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import type { Program } from "../../types/global";
 
-const Program = ({ program }) => {
+interface Props {
+  program: Program;
+}
+
+const Program = ({ program }: Props) => {
   return (
     <li className="py-6">
       <Link to={`/channel/episodes/${program.id}`} className="flex">

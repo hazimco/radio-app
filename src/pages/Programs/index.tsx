@@ -8,7 +8,11 @@ import PageTitle from "../../components/PageTitle";
 import DividerList from "../../components/DividerList";
 import useApiFetch from "../../hooks/useApiFetch";
 
-const Programs = ({ channelId }) => {
+interface Props {
+  channelId: string;
+}
+
+const Programs = ({ channelId }: Props) => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {

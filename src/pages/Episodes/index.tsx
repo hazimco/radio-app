@@ -9,8 +9,10 @@ import BackButton from "../../components/BackButton";
 import PageTitle from "../../components/PageTitle";
 import DividerList from "../../components/DividerList";
 
+import { Episode as EpisodeType } from "../../types/global";
+
 const Episodes = () => {
-  const [episodes, setEpisodes] = useState([]);
+  const [episodes, setEpisodes] = useState<EpisodeType[]>([]);
   const [filterText, setFilterText] = useState("");
 
   const { programId } = useParams();
@@ -21,6 +23,8 @@ const Episodes = () => {
   };
 
   useEffect(() => {
+    if (typeof programId !== "string") return;
+
     let componentIsMounted = true;
     episodesService
       .getEpisodes(programId)
@@ -38,7 +42,7 @@ const Episodes = () => {
     };
   }, [programId]);
 
-  const handleFilterChange = (event) => {
+  const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilterText(event.target.value);
   };
 

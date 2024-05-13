@@ -8,14 +8,14 @@
 // -- "2024-01-01" valid
 
 //would be better to use a date library to check if a string is a date
-export const isDate = (value) => {
+export const isDate = (value: string) => {
   return !isNaN(Date.parse(value));
 };
 
 // returns integer part of string with format /Date(1711966140000)/
-export const getDateMillis = (value) => {
+export const getDateMillis = (value: string) => {
   const firstPartRemoved = value.replace("/Date(", "");
   const dateMillis = firstPartRemoved.replace(")/", "");
 
-  return dateMillis;
+  return Number(dateMillis);
 };

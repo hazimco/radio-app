@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 
-const useApiFetch = (requestFunction) => {
-  const [data, setData] = useState();
+interface CallbackFunction<T> {
+  (): Promise<T>;
+}
+
+const useApiFetch = <T>(requestFunction: CallbackFunction<T>) => {
+  const [data, setData] = useState<T>();
 
   useEffect(() => {
     let shouldSetState = true;
     requestFunction()
-      .then((data) => {
+      .then((fetchedData) => {
         if (shouldSetState) {
-          setData(data);
+          setData(fetchedData);
         }
       })
       .catch((error) => {
